@@ -120,7 +120,7 @@ public class CtrCliente {
             if (resultado != 0) {
                 getFrmCliente().mostrarMensagem("Alteração realizada com sucesso!");
             } else {
-                getFrmCliente().mostrarMensagem("Alteração nao realizada!");
+                getFrmCliente().mostrarMensagem("Alteração não realizada!");
             }
         } else {
             getFrmCliente().mostrarMensagem("CPF Inválido!");
@@ -157,7 +157,7 @@ public class CtrCliente {
         if (resultado != 0) {
             getFrmCliente().mostrarMensagem("Exclusão realizada com sucesso!");
         } else {
-            getFrmCliente().mostrarMensagem("Exclusão nao realizada!");
+            getFrmCliente().mostrarMensagem("Exclusão não realizada!");
         }
     }
 

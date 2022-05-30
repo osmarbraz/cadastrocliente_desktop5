@@ -26,10 +26,9 @@ public class TestDAOInclusaoChavePrimaria {
         // Insere os dados        
         DAO.inserir(cliente);
         // Repete a inserção dos dados
-        assertFalse(DAO.inserir(cliente));        
+        assertFalse(DAO.inserir(cliente));
     }
-    
-    
+
     @Test
     public void testIncluir2() throws Exception {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
@@ -37,7 +36,7 @@ public class TestDAOInclusaoChavePrimaria {
         // Insere os dados                           
         DAO.inserir(cliente);
         // Repete a inserção dos dados
-        assertFalse(DAO.inserir(cliente));        
+        assertFalse(DAO.inserir(cliente));
     }
 
     @Test
@@ -46,11 +45,10 @@ public class TestDAOInclusaoChavePrimaria {
         ClienteDAO DAO = factory.getClienteDAO();
         // Insere os dados        
         DAO.inserir(cliente);
-         // Repete a inserção dos dados
-        assertFalse(DAO.inserir(cliente));        
+        // Repete a inserção dos dados
+        assertFalse(DAO.inserir(cliente));
     }
 
-  
     @AfterEach
     public void Finaliza() throws Exception {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);

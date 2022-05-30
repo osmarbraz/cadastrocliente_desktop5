@@ -24,7 +24,7 @@ public class TestValida {
 
     @Test
     public void testValidaCPFValido1() {
-        assertTrue(valida.validaCPF("11111111111"));        
+        assertTrue(valida.validaCPF("11111111111"));
     }
 
     @Test

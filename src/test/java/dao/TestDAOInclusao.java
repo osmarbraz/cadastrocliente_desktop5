@@ -38,7 +38,7 @@ public class TestDAOInclusao {
             assertFalse(false);
         }
     }
-    
+
     @Test
     public void testIncluir1Null() throws Exception {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
@@ -46,7 +46,7 @@ public class TestDAOInclusao {
         // Insere os dados        
         assertFalse(DAO.inserir(null));
     }
-    
+
     @Test
     public void testIncluir2() throws Exception {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);

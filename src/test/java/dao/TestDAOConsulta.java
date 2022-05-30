@@ -15,10 +15,10 @@ import entidade.Cliente;
 public class TestDAOConsulta {
 
     Cliente cliente;
-    
+
     @BeforeEach
     public void inicializa() {
-        cliente = new Cliente("131", "Cliente Existente", "11111111111");        
+        cliente = new Cliente("131", "Cliente Existente", "11111111111");
     }
 
     @Test
@@ -26,7 +26,7 @@ public class TestDAOConsulta {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         ClienteDAO DAO = factory.getClienteDAO();
         // Insere os dados da consulta
-        DAO.inserir(cliente);              
+        DAO.inserir(cliente);
         //Consulta
         List lista = DAO.getLista();
         assertNotEquals(0, lista.size());
@@ -39,7 +39,7 @@ public class TestDAOConsulta {
         // Insere os dados da consulta
         System.out.println(">>>>>>>>>>" + DAO.inserir(cliente));
         //Consulta
-        List lista = DAO.getLista();        
+        List lista = DAO.getLista();
         System.out.println(">>>>>>>>>>>>" + lista.size());
         assertNotEquals(0, lista.size());
     }
