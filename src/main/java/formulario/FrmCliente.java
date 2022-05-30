@@ -66,6 +66,7 @@ public class FrmCliente extends JFrame {
         this.setSize(new Dimension(310, 230));
         this.setTitle("Cadastro de Cliente");
         this.addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent e) {
                 System.exit(0);
             }
@@ -125,6 +126,7 @@ public class FrmCliente extends JFrame {
      *
      * @param e Eventos da janela.
      */
+    @Override
     protected void processWindowEvent(WindowEvent e) {
         super.processWindowEvent(e);
         if (e.getID() == WindowEvent.WINDOW_CLOSING) {
