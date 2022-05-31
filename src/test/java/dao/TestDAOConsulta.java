@@ -16,7 +16,7 @@ public class TestDAOConsulta {
 
     Cliente cliente;
 
-     /**
+    /**
      * Instância um cliente para os testes.
      */
     @BeforeEach
@@ -46,10 +46,9 @@ public class TestDAOConsulta {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
         ClienteDAO DAO = factory.getClienteDAO();
         // Insere os dados da consulta
-        System.out.println(">>>>>>>>>>" + DAO.inserir(cliente));
+        DAO.inserir(cliente);
         //Consulta
         List lista = DAO.getLista();
-        System.out.println(">>>>>>>>>>>>" + lista.size());
         assertNotEquals(0, lista.size());
     }
 
@@ -70,7 +69,7 @@ public class TestDAOConsulta {
 
     /**
      * Exclui os clientes usados nos testes.
-     * 
+     *
      * @throws java.lang.Exception
      */
     @AfterEach

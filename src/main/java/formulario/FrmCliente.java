@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 @SuppressWarnings("serial")
 public class FrmCliente extends JFrame {
 
-    private JPanel contentPane;
+    private JPanel contentPaneFrmCliente;
 
     private JLabel jLClienteId;
     private JTextField jTClienteId;
@@ -64,13 +64,21 @@ public class FrmCliente extends JFrame {
 
     public void setjTCpf(JTextField jTCpf) {
         this.jTCpf = jTCpf;
-    }    
-    
+    }
+
+    public JPanel getContentPaneFrmCliente() {
+        return contentPaneFrmCliente;
+    }
+
+    public void setContentPaneFrmCliente(JPanel contentPane) {
+        this.contentPaneFrmCliente = contentPane;
+    }
+
     /**
      * Inicializa os componentes da janela.
      */
     private void inicializar() {
-        contentPane = (JPanel) this.getContentPane();
+        setContentPaneFrmCliente((JPanel) this.getContentPane());
 
         jLClienteId = new JLabel();
         jTClienteId = new JTextField();
@@ -86,7 +94,8 @@ public class FrmCliente extends JFrame {
         jBLimpar = new JButton();
         jBFechar = new JButton();
 
-        contentPane.setLayout(null);
+        getContentPaneFrmCliente().setLayout(null);
+
         this.setSize(new Dimension(310, 230));
         this.setTitle("Cadastro de Cliente");
         this.addWindowListener(new WindowAdapter() {
@@ -126,19 +135,19 @@ public class FrmCliente extends JFrame {
         jBFechar.setBounds(new Rectangle(200, 159, 90, 27));
         jBFechar.setText("Fechar");
 
-        contentPane.add(jLClienteId, null);
-        contentPane.add(jTClienteId, null);
-        contentPane.add(jLNome, null);
-        contentPane.add(jTNome, null);
-        contentPane.add(jLCpf, null);
-        contentPane.add(jTCpf, null);
+        getContentPaneFrmCliente().add(jLClienteId, null);
+        getContentPaneFrmCliente().add(jTClienteId, null);
+        getContentPaneFrmCliente().add(jLNome, null);
+        getContentPaneFrmCliente().add(jTNome, null);
+        getContentPaneFrmCliente().add(jLCpf, null);
+        getContentPaneFrmCliente().add(jTCpf, null);
 
-        contentPane.add(jBIncluir, null);
-        contentPane.add(jBAlterar, null);
-        contentPane.add(jBExcluir, null);
-        contentPane.add(jBConsultar, null);
-        contentPane.add(jBLimpar, null);
-        contentPane.add(jBFechar, null);
+        getContentPaneFrmCliente().add(jBIncluir, null);
+        getContentPaneFrmCliente().add(jBAlterar, null);
+        getContentPaneFrmCliente().add(jBExcluir, null);
+        getContentPaneFrmCliente().add(jBConsultar, null);
+        getContentPaneFrmCliente().add(jBLimpar, null);
+        getContentPaneFrmCliente().add(jBFechar, null);
     }
 
     public void mostrarMensagem(String mensagem) {
