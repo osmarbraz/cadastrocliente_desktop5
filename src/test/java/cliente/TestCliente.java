@@ -10,33 +10,33 @@ import java.util.List;
 
 import entidade.Cliente;
 
-public class TestCliente {
+class TestCliente {
 
      /**
      * Testa o construtor sem argumentos do cliente.
      */
     @Test
-    public void testCliente() {
+    void testCliente() {
         Cliente instancia = new Cliente();
         assertTrue("".equals(instancia.getClienteId()) && "".equals(instancia.getNome()) && "".equals(instancia.getCpf()));
     }
 
     @Test
-    public void testClienteIdInt() {
+    void testClienteIdInt() {
         Cliente instancia = new Cliente();
         instancia.setClienteId(1);
         assertTrue("1".equals(instancia.getClienteId()) && "".equals(instancia.getNome()) && "".equals(instancia.getCpf()));
     }
 
     @Test
-    public void testParaString() {
+    void testParaString() {
         Cliente instancia = new Cliente();
         String esperado = "clienteId: - Nome : - CPF :";
         assertEquals(esperado, instancia.toString());
     }
 
     @Test
-    public void testInserir() {
+    void testInserir() {
         Cliente cliente = new Cliente("131", "Teste", "11111111111");
         assertTrue(cliente.inserir());
         cliente.excluir();

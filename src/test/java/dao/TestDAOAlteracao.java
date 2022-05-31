@@ -13,13 +13,13 @@ import dao.cliente.ClienteDAO;
 import entidade.Cliente;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class TestDAOAlteracao {
+class TestDAOAlteracao {
 
     Cliente cliente;
     Cliente clienteNaoExistente;
 
     @BeforeEach
-    public void inicializa() {
+    void inicializa() {
         cliente = new Cliente("131", "TesteAlteracao", "11111111111");
         clienteNaoExistente = new Cliente("879", "Cliente Nao Existente", "11111111111");
     }
@@ -28,7 +28,7 @@ public class TestDAOAlteracao {
      * Testa a alteração de um cliente existente no SQLite.
      */
     @Test
-    public void testAlteracao1() {
+    void testAlteracao1() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         ClienteDAO DAO = factory.getClienteDAO();
         DAO.inserir(cliente);
@@ -57,7 +57,7 @@ public class TestDAOAlteracao {
      * Testa a alteração de um cliente não existente no SQLite.
      */
     @Test
-    public void testAlteracao1NaoExistente() {
+    void testAlteracao1NaoExistente() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         ClienteDAO DAO = factory.getClienteDAO();
         //Altera o objeto não existente         
@@ -68,7 +68,7 @@ public class TestDAOAlteracao {
      * Testa a alteração de um cliente nullo no SQLite.
      */
     @Test
-    public void testAlteracao1Null() {
+    void testAlteracao1Null() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         ClienteDAO DAO = factory.getClienteDAO();
         assertEquals(0, DAO.alterar(null));
@@ -78,7 +78,7 @@ public class TestDAOAlteracao {
      * Testa a alteração do campo nome de um cliente no Hashmap.
      */
     @Test
-    public void testAlteracao2() {
+    void testAlteracao2() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
         ClienteDAO DAO = factory.getClienteDAO();
         DAO.inserir(cliente);
@@ -107,7 +107,7 @@ public class TestDAOAlteracao {
      * Testa a alteração de um cliente não existente no Hashmap.
      */
     @Test
-    public void testAlteracao2NaoExistente() {
+    void testAlteracao2NaoExistente() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
         ClienteDAO DAO = factory.getClienteDAO();
         //Altera o objeto não existente         
@@ -118,7 +118,7 @@ public class TestDAOAlteracao {
      * Testa a alteração de um cliente nulo no Hashmap.
      */
     @Test
-    public void testAlteracao2Null() {
+    void testAlteracao2Null() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
         ClienteDAO DAO = factory.getClienteDAO();
         assertEquals(0, DAO.alterar(null));
@@ -128,7 +128,7 @@ public class TestDAOAlteracao {
      * Testa a alteração do campo nome de um cliente não existente no RAF.
      */
     @Test
-    public void testAlteracao3() {
+    void testAlteracao3() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
         ClienteDAO DAO = factory.getClienteDAO();
         DAO.inserir(cliente);
@@ -157,7 +157,7 @@ public class TestDAOAlteracao {
      * Testa a alteração de um cliente não existente no RAF.
      */
     @Test
-    public void testAlteracao3NaoExistente() {
+    void testAlteracao3NaoExistente() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
         ClienteDAO DAO = factory.getClienteDAO();
         //Altera o objeto não existente         
@@ -168,14 +168,14 @@ public class TestDAOAlteracao {
      * Testa a alteração de um cliente nulo no RAF.
      */
     @Test
-    public void testAlteracao3Null() {
+    void testAlteracao3Null() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
         ClienteDAO DAO = factory.getClienteDAO();
         assertEquals(0, DAO.alterar(null));
     }
 
     @AfterEach
-    public void Finaliza() throws Exception {
+    void Finaliza() throws Exception {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         ClienteDAO DAO = factory.getClienteDAO();
         // Exclui os dados inseridos

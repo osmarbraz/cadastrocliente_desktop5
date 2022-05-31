@@ -14,19 +14,19 @@ import dao.cliente.ClienteDAO;
 import entidade.Cliente;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class TestDAOConsultaId {
+class TestDAOConsultaId {
 
     Cliente cliente;
     Cliente clienteNaoExistente;
 
     @BeforeEach
-    public void inicializa() {
+    void inicializa() {
         cliente = new Cliente("131", "Teste Consulta", "11111111111");
         clienteNaoExistente = new Cliente("999", "Cliente Nao Existente", "11111111111");
     }
 
     @Test
-    public void testConsulta1() {
+    void testConsulta1() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         ClienteDAO DAO = factory.getClienteDAO();
         Cliente consulta = new Cliente();
@@ -45,7 +45,7 @@ public class TestDAOConsultaId {
     }
 
     @Test
-    public void testConsulta1NaoExisteId() {
+    void testConsulta1NaoExisteId() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         ClienteDAO DAO = factory.getClienteDAO();
         Cliente consulta = new Cliente();
@@ -63,7 +63,7 @@ public class TestDAOConsultaId {
         }
     }
 
-    public void testConsulta1Null() {
+    void testConsulta1Null() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         ClienteDAO DAO = factory.getClienteDAO();
         //Consulta
@@ -72,7 +72,7 @@ public class TestDAOConsultaId {
     }
 
     @Test
-    public void testConsulta2() {
+    void testConsulta2() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
         ClienteDAO DAO = factory.getClienteDAO();
         Cliente consulta = new Cliente();
@@ -92,7 +92,7 @@ public class TestDAOConsultaId {
     }
 
     @Test
-    public void testConsulta2NaoExisteId() {
+    void testConsulta2NaoExisteId() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
         ClienteDAO DAO = factory.getClienteDAO();
         Cliente consulta = new Cliente();
@@ -110,7 +110,7 @@ public class TestDAOConsultaId {
         }
     }
 
-    public void testConsulta2Null() {
+    void testConsulta2Null() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
         ClienteDAO DAO = factory.getClienteDAO();
         //Consulta
@@ -119,7 +119,7 @@ public class TestDAOConsultaId {
     }
 
     @Test
-    public void testConsulta3() {
+    void testConsulta3() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
         ClienteDAO DAO = factory.getClienteDAO();
         Cliente consulta = new Cliente();
@@ -139,7 +139,7 @@ public class TestDAOConsultaId {
     }
 
     @Test
-    public void testConsulta3NaoExisteId() {
+    void testConsulta3NaoExisteId() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
         ClienteDAO DAO = factory.getClienteDAO();
         Cliente consulta = new Cliente();
@@ -157,7 +157,7 @@ public class TestDAOConsultaId {
         }
     }
 
-    public void testConsulta3Null() {
+    void testConsulta3Null() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
         ClienteDAO DAO = factory.getClienteDAO();
         //Consulta
@@ -166,7 +166,7 @@ public class TestDAOConsultaId {
     }
 
     @AfterEach
-    public void Finaliza() throws Exception {
+    void Finaliza() throws Exception {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         ClienteDAO DAO = factory.getClienteDAO();
         // Exclui os dados inseridos
