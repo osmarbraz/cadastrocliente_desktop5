@@ -53,18 +53,26 @@ class TestValida {
     }
 
     /**
-     * Testa CPF inválido.
+     * Testa CPF inválido final 1.
      */
     @Test
     public void testValidaCPFInvalido1() {
         assertFalse(valida.validaCPF("94622036011"));
+    }
+    
+    /**
+     * Testa CPF inválido final 2.
+     */
+    @Test
+    public void testValidaCPFInvalido2() {
+        assertFalse(valida.validaCPF("94622036012"));
     }
 
     /**
      * Testa CPF com problema na conversão.
      */
     @Test
-    public void testValidaCPFInvalido2() {
+    public void testValidaCPFInvalido3() {
         //CPF com problema na conversão
         assertFalse(valida.validaCPF("0065XAB22050"));
     }
