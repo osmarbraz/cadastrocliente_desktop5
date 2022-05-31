@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import org.junit.jupiter.api.Test;
 
 class TestRAFClienteDAO {
-   
+
     /**
      * Testa se o arquivo não existe.
      *

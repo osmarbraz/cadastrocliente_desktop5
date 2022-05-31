@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 class TestValida {
 
     private Valida valida = null;
-    
-   /**
+
+    /**
      * Instância uma classe de validação.
      */
     @BeforeAll
@@ -68,7 +68,7 @@ class TestValida {
         //CPF com problema na conversão
         assertFalse(valida.validaCPF("0065XAB22050"));
     }
-    
+
     /**
      * Testa CPF com problema na quantidade de caracteres.
      */

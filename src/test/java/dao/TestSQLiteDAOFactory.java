@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 public class TestSQLiteDAOFactory {
 
     /**
-     * Testa se o driver nimport static org.junit.jupiter.api.Assertions.assertNull;
-ão existe.
+     * Testa se o driver nimport static
+     * org.junit.jupiter.api.Assertions.assertNull; ão existe.
      */
     @Test
     public void testGetConnectionDriver() {
@@ -17,7 +17,7 @@ public class TestSQLiteDAOFactory {
         sqlitedaofactory.setJdbcURL("jdbc:sqlite:cliente.db");
         assertNull(sqlitedaofactory.getConnection());
     }
-    
+
     /**
      * Testa se a url não existe.
      */
