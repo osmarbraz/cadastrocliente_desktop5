@@ -169,6 +169,7 @@ public class CtrCliente {
 
     /**
      * Retorna o formulário utilizado por este controle.
+     * @return Um formulário.
      */
     public FrmCliente getFrmCliente() {
         return frmCliente;

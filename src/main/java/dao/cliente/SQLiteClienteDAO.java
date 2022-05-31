@@ -31,22 +31,19 @@ public class SQLiteClienteDAO extends SQLiteDAOFactory implements ClienteDAO, SQ
             try {
                 rs.close();
             } catch (SQLException e) {
-            }
-            rs = null;
+            }            
         }
         if (stmt != null) {
             try {
                 stmt.close();
             } catch (SQLException e) {
             }
-            stmt = null;
         }
         if (con != null) {
             try {
                 con.close();
             } catch (SQLException e) {
             }
-            con = null;
         }
     }
 

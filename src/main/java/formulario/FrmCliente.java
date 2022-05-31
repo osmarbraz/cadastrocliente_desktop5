@@ -64,9 +64,7 @@ public class FrmCliente extends JFrame {
 
     public void setjTCpf(JTextField jTCpf) {
         this.jTCpf = jTCpf;
-    }
-
-    
+    }    
     
     /**
      * Inicializa os componentes da janela.
