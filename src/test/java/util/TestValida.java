@@ -56,7 +56,7 @@ class TestValida {
      * Testa CPF inválido final 1.
      */
     @Test
-    public void testValidaCPFInvalido1() {
+    void testValidaCPFInvalido1() {
         assertFalse(valida.validaCPF("94622036011"));
     }
     
@@ -64,7 +64,7 @@ class TestValida {
      * Testa CPF inválido final 2.
      */
     @Test
-    public void testValidaCPFInvalido2() {
+    void testValidaCPFInvalido2() {
         assertFalse(valida.validaCPF("94622036012"));
     }
 
@@ -72,7 +72,7 @@ class TestValida {
      * Testa CPF com problema na conversão.
      */
     @Test
-    public void testValidaCPFInvalido3() {
+    void testValidaCPFInvalido3() {
         //CPF com problema na conversão
         assertFalse(valida.validaCPF("0065XAB22050"));
     }
