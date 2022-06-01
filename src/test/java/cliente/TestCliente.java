@@ -43,14 +43,14 @@ class TestCliente {
     }
 
     @Test
-    public void testExcluir() {
+    void testExcluir() {
         Cliente cliente = new Cliente("131", "Teste", "11111111111");
         cliente.inserir();
         assertEquals(1, cliente.excluir());
     }
 
     @Test
-    public void testAlterar() {
+    void testAlterar() {
         Cliente cliente = new Cliente("131", "Teste", "11111111111");
         cliente.inserir();
         String nomeAlteracao = "Alterado";
@@ -64,7 +64,7 @@ class TestCliente {
     }
 
     @Test
-    public void testAplicarFiltro() {
+    void testAplicarFiltro() {
         Cliente cliente = new Cliente("131", "Teste", "11111111111");
         cliente.inserir();
         List lista = cliente.aplicarFiltro();
@@ -80,7 +80,7 @@ class TestCliente {
     }
 
     @Test
-    public void testGetLista() {
+    void testGetLista() {
         Cliente cliente = new Cliente("131", "Teste", "11111111111");
         cliente.inserir();
         List lista = cliente.getLista();
@@ -96,7 +96,7 @@ class TestCliente {
     }
 
     @Test
-    public void testAbrir() {
+    void testAbrir() {
         //Testa um cliente que não existe
         Cliente cliente = new Cliente("-1", "Teste", "11111111111");
         assertFalse(cliente.abrir());

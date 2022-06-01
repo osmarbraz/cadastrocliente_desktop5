@@ -20,7 +20,7 @@ class TestDAOInclusaoChavePrimaria {
     }
 
     @Test
-    public void testIncluir1() throws Exception {
+    void testIncluir1() throws Exception {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         ClienteDAO DAO = factory.getClienteDAO();
         // Insere os dados        
