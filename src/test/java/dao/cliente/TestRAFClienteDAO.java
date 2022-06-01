@@ -9,14 +9,14 @@ import org.junit.jupiter.api.Test;
 
 import entidade.Cliente;
 
-public class TestRAFClienteDAO {
+class TestRAFClienteDAO {
 
     /**
      * Testa se o arquivo não existe.
      *
      */
     @Test
-    public void testAbrirArquivo() {
+    void testAbrirArquivo() {
         RAFClienteDAO rafclientedao = new RAFClienteDAO();
 
         assertFalse(rafclientedao.abrirArquivo("tes\\te//.txt"));
@@ -26,7 +26,7 @@ public class TestRAFClienteDAO {
      * Testa uma inclusão de cliente em arquivo inexistente no RAF.
      */
     @Test
-    public void testInclusaoRAF() {
+    void testInclusaoRAF() {
         String NOMEARQUIVO = "cliente.dat";
 
         Cliente cliente = new Cliente("-1", "Cliente Existente", "11111111111");
@@ -49,7 +49,7 @@ public class TestRAFClienteDAO {
      * Testa uma exclusão de cliente em arquivo inexistente no RAF.
      */
     @Test
-    public void testExclusaoRAF() {
+    void testExclusaoRAF() {
         String NOMEARQUIVO = "cliente.dat";
 
         Cliente cliente = new Cliente("-1", "Cliente Existente", "11111111111");
@@ -72,7 +72,7 @@ public class TestRAFClienteDAO {
      * Testa uma exclusão de registro de cliente em arquivo inexistente no RAF.
      */
     @Test
-    public void testExclusaoRegistoRAF() {
+    void testExclusaoRegistoRAF() {
         String NOMEARQUIVO = "cliente.dat";
 
         RAFRegistroCliente registro = new RAFRegistroCliente();
@@ -97,7 +97,7 @@ public class TestRAFClienteDAO {
      * Testa uma exclusão de cliente em arquivo inexistente no RAF.
      */
     @Test
-    public void testAlteracaRAF() {
+    void testAlteracaRAF() {
         String NOMEARQUIVO = "cliente.dat";
 
         Cliente cliente = new Cliente("-1", "Cliente Existente", "11111111111");
@@ -120,7 +120,7 @@ public class TestRAFClienteDAO {
      * Testa uma alteração de registro de cliente em arquivo inexistente no RAF.
      */
     @Test
-    public void testAlteracaRegistoRAF() {
+    void testAlteracaRegistoRAF() {
         String NOMEARQUIVO = "cliente.dat";
 
         Cliente cliente = new Cliente("-1", "Cliente Existente", "11111111111");
@@ -146,7 +146,7 @@ public class TestRAFClienteDAO {
      * Testa o getLista em arquivo inexistente no RAF.
      */
     @Test
-    public void testGetListaRAF() {
+    void testGetListaRAF() {
         String NOMEARQUIVO = "cliente.dat";
 
         RAFClienteDAO rafClienteDAO = new RAFClienteDAO();
@@ -170,7 +170,7 @@ public class TestRAFClienteDAO {
      * Testa a consulta com filtro clienteid em RAF inexistente.
      */
     @Test
-    public void testAplicarFiltroClienteIdRAF() {
+    void testAplicarFiltroClienteIdRAF() {
         Cliente cliente = new Cliente("131", "", "");
         String NOMEARQUIVO = "cliente.dat";
 
@@ -195,7 +195,7 @@ public class TestRAFClienteDAO {
      * Testa a consulta com filtro nome em RAF inexistente.
      */
     @Test
-    public void testAplicarFiltroNomeRAF() {
+    void testAplicarFiltroNomeRAF() {
         Cliente cliente = new Cliente("", "Nome", "");
         String NOMEARQUIVO = "cliente.dat";
 
@@ -220,7 +220,7 @@ public class TestRAFClienteDAO {
      * Testa a consulta com filtro CPF em RAF inexistente.
      */
     @Test
-    public void testAplicarFiltroCPFRAF() {
+    void testAplicarFiltroCPFRAF() {
         Cliente cliente = new Cliente("", "", "111");
         String NOMEARQUIVO = "cliente.dat";
 
