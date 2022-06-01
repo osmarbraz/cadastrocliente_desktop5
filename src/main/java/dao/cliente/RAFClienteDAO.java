@@ -42,14 +42,6 @@ public class RAFClienteDAO extends RAFDAOFactory implements ClienteDAO {
         return false;
     }
 
-    public void fecharArquivo() {
-        try {
-            arquivo.close();
-        } catch (IOException e) {
-            LOGGER.log(Level.SEVERE, "Problema em fechar o arquivo!{0}", e.toString());
-        }
-    }
-
     @Override
     public boolean inserir(Object obj) {
         if (obj != null) {
