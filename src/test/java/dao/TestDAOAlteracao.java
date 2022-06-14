@@ -57,7 +57,7 @@ class TestDAOAlteracao {
      * Testa a alteração do cpf de um cliente existente no SQLite.
      */
     @Test
-    public void testAlteracaoCpf1() {
+    void testAlteracaoCpf1() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         ClienteDAO DAO = factory.getClienteDAO();
         DAO.inserir(cliente);
