@@ -11,6 +11,8 @@ import java.util.List;
 
 import dao.cliente.ClienteDAO;
 import entidade.Cliente;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class TestDAOExclusao {
@@ -31,9 +33,14 @@ class TestDAOExclusao {
 
         if (!lista.isEmpty()) {
             Cliente oCliente = (Cliente) lista.iterator().next();
+            //Verifica se existe o cliente antes da exclusão
+            boolean existeAntesExclusao = oCliente!= null;
             DAO.excluir(oCliente);
             lista = DAO.aplicarFiltro(cliente);
-            assertEquals(0, lista.size());
+            //Verifica se a lista está vazia depois da exclusão
+            boolean naoExisteDepoisExclusao = lista.isEmpty();
+            assertTrue(existeAntesExclusao);
+            assertTrue(naoExisteDepoisExclusao);
         } else {
             assertFalse(false);
         }
@@ -54,10 +61,15 @@ class TestDAOExclusao {
         List lista = DAO.aplicarFiltro(cliente);
 
         if (!lista.isEmpty()) {
-            Cliente oCliente = (Cliente) lista.iterator().next();
+           Cliente oCliente = (Cliente) lista.iterator().next();
+            //Verifica se existe o cliente antes da exclusão
+            boolean existeAntesExclusao = oCliente!= null;
             DAO.excluir(oCliente);
             lista = DAO.aplicarFiltro(cliente);
-            assertEquals(0, lista.size());
+            //Verifica se a lista está vazia depois da exclusão
+            boolean naoExisteDepoisExclusao = lista.isEmpty();
+            assertTrue(existeAntesExclusao);
+            assertTrue(naoExisteDepoisExclusao);
         } else {
             assertFalse(false);
         }
@@ -79,9 +91,14 @@ class TestDAOExclusao {
 
         if (!lista.isEmpty()) {
             Cliente oCliente = (Cliente) lista.iterator().next();
+            //Verifica se existe o cliente antes da exclusão
+            boolean existeAntesExclusao = oCliente!= null;
             DAO.excluir(oCliente);
             lista = DAO.aplicarFiltro(cliente);
-            assertEquals(0, lista.size());
+            //Verifica se a lista está vazia depois da exclusão
+            boolean naoExisteDepoisExclusao = lista.isEmpty();
+            assertTrue(existeAntesExclusao);
+            assertTrue(naoExisteDepoisExclusao);
         } else {
             assertFalse(false);
         }
