@@ -3,6 +3,9 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=osmarbraz_cadastrocliente_desktop5&metric=coverage)](https://sonarcloud.io/component_measures?id=osmarbraz_cadastrocliente_desktop5&metric=coverage)
 
 # Sistema de Cadastro de Clientes para Desktop em Banco de Dados em 3 camadas utilizando o padrão Abstract Factory.
+
+## Contextualização
+
  - O projeto foi desenvolvido no NetBeans deve ser chamado cadastrocliente_desktop.<br>
  - Utiliza o Apache Maven para a automatização da construção.<br>
  - O projeto é um CRUD para os dados de cliente(clienteId, Nome, CPF).
@@ -31,3 +34,7 @@ Pipeline de CI:
 - dev - Compilação e testes do desenvolvimento nas versões JDK 16, 17 e 18. 
 - hmg - Análise e cobertura código.
 - prd - Empacotamento.
+
+## Arquivo
+
+- build.xml - Arquivo de configuração da ferramenta de automação Ant.
