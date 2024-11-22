@@ -5,8 +5,20 @@
     <artifactId>cadastrocliente_desktop5</artifactId>
     <version>1</version>
     <packaging>jar</packaging>
+    
+    <!-- propriedades do projeto --> 
+    <properties>        
+        <sonar.organization>osmarbraz</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.coverage.exclusions>**/principal/*Principal.*,**/*formulario/**/*,**/*controle/**/*</sonar.coverage.exclusions> 
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+    
     <name>cadastrocliente_desktop5</name>
     
+    <!-- Lista das dependências do projeto -->
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -38,15 +50,6 @@
             <version>3.36.0.3</version>
         </dependency>
     </dependencies>
-    
-    <properties>        
-        <sonar.organization>osmarbraz</sonar.organization>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.coverage.exclusions>**/principal/*Principal.*,**/*formulario/**/*,**/*controle/**/*</sonar.coverage.exclusions> 
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
     
     <build>
         <plugins>
