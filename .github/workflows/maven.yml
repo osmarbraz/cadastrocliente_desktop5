@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: dev
+    name: build-dev - Compilação e teste
     # Compila com diversas versões do JDK
     strategy:
       matrix: 
