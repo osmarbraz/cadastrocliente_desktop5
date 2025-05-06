@@ -15,6 +15,7 @@ public class TestFrmClienteAlteracao {
 
     //Objeto cliente a ser inserido
     Cliente clienteTesteInserir;
+    //Objeto cliente a ser alterado
     Cliente clienteTesteAlterar;
     //Formulário fake para inclusão dos dados
     FrmClienteFake frmCliente = null;
@@ -28,11 +29,13 @@ public class TestFrmClienteAlteracao {
     public void inicializa() {
         //Dados de teste de inclusão
         clienteTesteInserir = new Cliente("131", "Teste", "11111111111");
+        //Dados de teste para alteração
         clienteTesteAlterar = new Cliente("131", "TesteAlterado", "11111111111");
         //Instância o formulário fake
         frmCliente = new FrmClienteFake();
         //Instância o controle do formulário
         controle = new CtrCliente();
+        //Atribui o formulário ao controle
         controle.setFrmCliente(frmCliente);
     }
 
@@ -55,25 +58,25 @@ public class TestFrmClienteAlteracao {
         controle.getFrmCliente().getjTCpf().setText(clienteTesteAlterar.getCpf());
         //Chama a operação de alterar
         controle.jButtonAlterarActionPerformed(null);
-     
+
         //Verifica se a inclusão foi realizada
         assertEquals(controle.getFrmCliente().getMensagem(), "Alteração realizada com sucesso!");
     }
-    
+
     @Test
     public void testAlterarFalha() {
         //Preenche o formulário
         controle.getFrmCliente().getjTClienteId().setText(clienteTesteAlterar.getClienteId());
         controle.getFrmCliente().getjTNome().setText(clienteTesteAlterar.getNome());
         controle.getFrmCliente().getjTCpf().setText(clienteTesteAlterar.getCpf());
-    
+
         //Chama a operação de alterar
         controle.jButtonAlterarActionPerformed(null);
-     
+
         //Verifica se a inclusão foi realizada
         assertEquals(controle.getFrmCliente().getMensagem(), "Alteração não realizada!");
     }
-    
+
     @Test
     public void testAlterarFalhaCPF() {
         //Preenche o formulário
@@ -91,21 +94,21 @@ public class TestFrmClienteAlteracao {
         //Preenche com os novos dados
         controle.getFrmCliente().getjTNome().setText(clienteTesteAlterar.getNome());
         //Adiciona um caracter ao CPF para tornar inválido
-        controle.getFrmCliente().getjTCpf().setText(clienteTesteAlterar.getCpf()+"1");
+        controle.getFrmCliente().getjTCpf().setText(clienteTesteAlterar.getCpf() + "1");
         //Chama a operação de alterar
         controle.jButtonAlterarActionPerformed(null);
-     
+
         //Verifica se a inclusão foi realizada
         assertEquals(controle.getFrmCliente().getMensagem(), "CPF Inválido!");
     }
 
     /**
-     * Exclui o cliente usado nos testes.
+     * Exclui os clientes usados nos testes.
      *
      * @throws java.lang.Exception
      */
     @AfterEach
-    public void finaliza() throws Exception{
+    public void finaliza() throws Exception {
         //Apaga o registro incluído
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         ClienteDAO DAO = factory.getClienteDAO();
@@ -114,7 +117,7 @@ public class TestFrmClienteAlteracao {
 
         // Exclui os dados inseridos
         DAO.excluir(clienteTesteAlterar);
-        
+
         controle = null;
         clienteTesteInserir = null;
         clienteTesteAlterar = null;

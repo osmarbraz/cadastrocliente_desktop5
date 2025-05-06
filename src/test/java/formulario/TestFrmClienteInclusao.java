@@ -49,11 +49,11 @@ public class TestFrmClienteInclusao {
         controle.getFrmCliente().getjTCpf().setText(clienteTeste.getCpf());
         //Chama o método de inclusão
         controle.jButtonIncluirActionPerformed(null);
-                
+
         //Verifica se a inclusão foi realizada
         assertEquals(controle.getFrmCliente().getMensagem(), "Inclusão realizada com sucesso!");
     }
-    
+
     /**
      * Teste de inclusão com falha pois já existe o cliente.
      */
@@ -71,7 +71,7 @@ public class TestFrmClienteInclusao {
         controle.jButtonConsultarActionPerformed(null);
         //Chama o método de inclusão para gerar a falha de repetição do id
         controle.jButtonIncluirActionPerformed(null);
-        
+
         //Verifica se a inclusão foi realizada
         assertEquals(controle.getFrmCliente().getMensagem(), "Inclusão não realizada!");
     }
@@ -89,7 +89,7 @@ public class TestFrmClienteInclusao {
         controle.jButtonIncluirActionPerformed(null);
         //Limpa as caixas de texto
         controle.jButtonLimparActionPerformed(null);
-        
+
         //Verifica se o cpf foi recuperado
         assertEquals(controle.getFrmCliente().getMensagem(), "CPF Inválido!");
     }
@@ -108,6 +108,7 @@ public class TestFrmClienteInclusao {
         DAO.excluir(clienteTeste);
 
         controle = null;
+        frmCliente = null;
         clienteTeste = null;
     }
 }

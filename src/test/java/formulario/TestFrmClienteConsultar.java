@@ -48,20 +48,20 @@ public class TestFrmClienteConsultar {
         controle.getFrmCliente().getjTClienteId().setText(clienteTeste.getClienteId());
         //Chama o consultar para localizar o id incluído
         controle.jButtonConsultarActionPerformed(null);
-      
+
         //Verifica se a inclusão foi realizada
-        assertEquals(controle.getFrmCliente().getMensagem(), "Cliente encontrado!");        
+        assertEquals(controle.getFrmCliente().getMensagem(), "Cliente encontrado!");
     }
-    
+
     @Test
     public void testConsultaNaoEncontrado() {
         //Preenche o campo id
         controle.getFrmCliente().getjTClienteId().setText(clienteTeste.getClienteId());
         //Chama o consultar para localizar o id incluído
         controle.jButtonConsultarActionPerformed(null);
-      
+
         //Verifica se a inclusão foi realizada
-        assertEquals(controle.getFrmCliente().getMensagem(), "Cliente não encontrado!");        
+        assertEquals(controle.getFrmCliente().getMensagem(), "Cliente não encontrado!");
     }
 
     /**
@@ -70,14 +70,15 @@ public class TestFrmClienteConsultar {
      * @throws java.lang.Exception
      */
     @AfterEach
-    public void finaliza() throws Exception{
+    public void finaliza() throws Exception {
         //Apaga o registro incluído
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         ClienteDAO DAO = factory.getClienteDAO();
         // Exclui os dados inseridos
         DAO.excluir(clienteTeste);
-        
+
         controle = null;
+        frmCliente = null;
         clienteTeste = null;
     }
 }

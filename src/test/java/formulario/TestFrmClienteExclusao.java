@@ -12,14 +12,14 @@ import org.junit.jupiter.api.TestInstance;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class TestFrmClienteExclusao {
-    
+
     //Objeto cliente a ser inserido
     Cliente clienteTeste;
     //Formulário fake para inclusão dos dados
     FrmClienteFake frmCliente = null;
     //Controle do formulário
     CtrCliente controle = null;
-           
+
     /**
      * Inicializa os objetos para o teste.
      */
@@ -53,11 +53,11 @@ class TestFrmClienteExclusao {
         controle.jButtonConsultarActionPerformed(null);
         //Chama o excluir para apagar o cliente incluído
         controle.jButtonExcluirActionPerformed(null);
-        
+
         //Verifica se o cpf foi recuperado
         assertEquals(controle.getFrmCliente().getMensagem(), "Exclusão realizada com sucesso!");
-     }
-    
+    }
+
     /**
      * Exclusão realizada com falha.
      */
@@ -67,18 +67,19 @@ class TestFrmClienteExclusao {
         controle.getFrmCliente().getjTClienteId().setText(clienteTeste.getClienteId());
         //Chama o excluir para apagar o cliente incluído
         controle.jButtonExcluirActionPerformed(null);
-        
+
         //Verifica se o cpf foi recuperado
         assertEquals(controle.getFrmCliente().getMensagem(), "Exclusão não realizada!");
-     }
+    }
 
     /**
-     * Exclui o cliente usado nos testes caso ele não tenha sido elimitado no teste.
+     * Exclui o cliente usado nos testes caso ele não tenha sido elimitado no
+     * teste.
      *
      * @throws java.lang.Exception
      */
     @AfterEach
-    public void Finaliza() throws Exception{
+    public void Finaliza() throws Exception {
         //Apaga o registro incluído        
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         ClienteDAO DAO = factory.getClienteDAO();
@@ -86,6 +87,7 @@ class TestFrmClienteExclusao {
         DAO.excluir(clienteTeste);
 
         controle = null;
+        frmCliente = null;
         clienteTeste = null;
     }
 }
