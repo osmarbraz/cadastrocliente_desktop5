@@ -166,7 +166,7 @@ class TestDAOConsultaId {
     }
 
     @AfterEach
-    void Finaliza() throws Exception {
+    void finaliza() throws Exception {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         ClienteDAO DAO = factory.getClienteDAO();
         // Exclui os dados inseridos

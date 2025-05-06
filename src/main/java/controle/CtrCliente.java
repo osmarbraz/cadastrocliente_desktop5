@@ -24,7 +24,7 @@ public class CtrCliente {
         setFrmCliente(new FrmCliente());
 
         // Associa os eventos aos componentes
-        getFrmCliente().getjBAlterar().addActionListener(this::jButtonIncluirActionPerformed);
+        getFrmCliente().getjBIncluir().addActionListener(this::jButtonIncluirActionPerformed);
 
         getFrmCliente().getjBAlterar().addActionListener(this::jButtonAlterarActionPerformed);
 

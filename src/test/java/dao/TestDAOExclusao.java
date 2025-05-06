@@ -112,7 +112,7 @@ class TestDAOExclusao {
     }
 
     @AfterEach
-    void Finaliza() throws Exception {
+    void finaliza() throws Exception {
         cliente = null;
     }
 }

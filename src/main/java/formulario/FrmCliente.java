@@ -34,6 +34,8 @@ public class FrmCliente extends JFrame {
     private JButton jBConsultar;
     private JButton jBLimpar;
     private JButton jBFechar;
+    
+    private String mensagem;
 
     /**
      * Construtor sem argumentos.
@@ -138,8 +140,6 @@ public class FrmCliente extends JFrame {
         this.jBFechar = jBFechar;
     }
     
-    
-
     public JPanel getContentPaneFrmCliente() {
         return contentPaneFrmCliente;
     }
@@ -148,10 +148,18 @@ public class FrmCliente extends JFrame {
         this.contentPaneFrmCliente = contentPane;
     }
 
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }   
+    
     /**
      * Inicializa os componentes da janela.
      */
-    private void inicializar() {
+    protected void inicializar() {
         setContentPaneFrmCliente((JPanel) this.getContentPane());
 
         jLClienteId = new JLabel();
@@ -167,7 +175,7 @@ public class FrmCliente extends JFrame {
         jBExcluir = new JButton();
         jBLimpar = new JButton();
         jBFechar = new JButton();
-
+        
         getContentPaneFrmCliente().setLayout(null);
 
         this.setSize(new Dimension(310, 230));
