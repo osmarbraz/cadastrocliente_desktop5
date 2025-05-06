@@ -20,6 +20,10 @@ jobs:
         java: [16, 17, 18]
     name: build-dev - Teste com JDK ${{ matrix.java }}
     steps:
+    - run: |
+          export DISPLAY=:99
+          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 &
+          mycommand
     # Utiliza a action checkout para fazer o git clone no runner
     - name: Realiza o checkout do repositório
       uses: actions/checkout@v3
