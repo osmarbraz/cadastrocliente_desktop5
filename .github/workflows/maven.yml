@@ -39,9 +39,10 @@ jobs:
       # Roda a aplicação a tela 1 do Xvfb
       env:
         DISPLAY: :1
-    # Desliga o xvfb
-    - name: Desliga xvfb
+    # Desliga o Xvfb
+    - name: Desliga Xvfb
       run: killall Xvfb
+      
   # Jobs do ambiente de homologação
   build-hmg:
     # Runner com uma instância do ubuntu      
@@ -92,8 +93,8 @@ jobs:
       # Roda a aplicação a tela 1 do Xvfb
       env:
         DISPLAY: :1
-    # Desliga o xvfb
-    - name: Desliga xvfb
+    # Desliga o Xvfb
+    - name: Desliga Xvfb
       run: killall Xvfb
       
   # Jobs do ambiente de produção
@@ -137,6 +138,6 @@ jobs:
         name: Package-${{ runner.os }} #.zip será adicionado automaticamente
         # Caminho da pasta temporária (stating)
         path: staging
-    # Desliga o xvfb
-    - name: Desliga xvfb
+    # Desliga o Xvfb
+    - name: Desliga Xvfb
       run: killall Xvfb
