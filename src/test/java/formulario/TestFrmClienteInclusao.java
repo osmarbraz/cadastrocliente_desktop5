@@ -2,6 +2,7 @@ package formulario;
 
 import controle.CtrCliente;
 import dao.DAOFactory;
+import dao.Factory;
 import dao.cliente.ClienteDAO;
 import entidade.Cliente;
 import org.junit.jupiter.api.AfterEach;
@@ -102,7 +103,7 @@ public class TestFrmClienteInclusao {
     @AfterEach
     public void finaliza() throws Exception {
         //Apaga o registro incluído
-        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
+        DAOFactory factory = DAOFactory.getDAOFactory(Factory.FABRICA);
         ClienteDAO DAO = factory.getClienteDAO();
         // Exclui os dados inseridos
         DAO.excluir(clienteTeste);

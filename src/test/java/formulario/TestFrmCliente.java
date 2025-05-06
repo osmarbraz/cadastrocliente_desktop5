@@ -112,12 +112,11 @@ public class TestFrmCliente {
         controle.getFrmCliente().setjBFechar(jBFechar);
         
         //Verifica se a componente foi criado
-        assertEquals(controle.getFrmCliente().getjBFechar(), jBFechar);
-        
+        assertEquals(controle.getFrmCliente().getjBFechar(), jBFechar);        
     }
 
     /**
-     * Exclui os clientes usados nos testes.
+     * Atribui nulo as classes utilizadas.
      *
      * @throws java.lang.Exception
      */
