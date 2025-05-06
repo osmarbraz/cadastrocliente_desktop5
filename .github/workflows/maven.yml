@@ -36,8 +36,9 @@ jobs:
     # Executa a compilação e testes do projeto com o Maven no runner    
     - name: Compila o projeto com Maven
       run: mvn -B test --file pom.xml
-      # Roda a aplicação a tela 1 do Xvfb
+      # Configura as variáveis de ambiente
       env:
+        # Roda a aplicação a tela 1 do Xvfb
         DISPLAY: :1
     # Desliga o Xvfb
     - name: Desliga Xvfb
@@ -84,14 +85,14 @@ jobs:
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
     # Executa a verificação do projeto com o Maven no runner    
-    - name: Verifica o projeto com Maven e Jacoco
+    - name: Verifica o projeto com Maven e Jacoco    
+      #run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=osmarbraz_cadastrocliente_desktop5 #Default do Sonarcloud
+      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=osmarbraz_cadastrocliente_desktop5 org.jacoco:jacoco-maven-plugin:prepare-agent -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml      
+      # Configura as variáveis de ambiente
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      #run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=osmarbraz_cadastrocliente_desktop5 #Default do Sonarcloud
-      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=osmarbraz_cadastrocliente_desktop5 org.jacoco:jacoco-maven-plugin:prepare-agent -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
-      # Roda a aplicação a tela 1 do Xvfb
-      env:
+        # Roda a aplicação a tela 1 do Xvfb
         DISPLAY: :1
     # Desliga o Xvfb
     - name: Desliga Xvfb
@@ -120,12 +121,13 @@ jobs:
         distribution: 'temurin'
         cache: maven
     # Executa o empacotamento do projeto com o Maven no runner    
-    # O parâmetro -DskipTests pula os testes pois já foram executados no ambiente anterior.
+    # O parâmetro -DskipTests pula os testes pois já foram executados no ambiente anterior.    
     - name: Empacota o projeto com Maven      
       run: mvn -B package --file pom.xml -DskipTests
-      # Roda a aplicação a tela 1 do Xvfb
+      # Configura as variáveis de ambiente
       env:
-        DISPLAY: :1
+        # Roda a aplicação a tela 1 do Xvfb   
+        DISPLAY: :1    
     # Cria o artefato de download    
     - name: Crie uma pasta temporária(stating) de downloads de artefatos
       run: mkdir staging
