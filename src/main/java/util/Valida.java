@@ -14,40 +14,59 @@ public class Valida {
      * @return Se o cpf é válido.
      */
     public boolean validaCPF(String cpf) {
-        boolean retorno = false;
-        if (cpf.length() == 11) {
-            String digitos = cpf.substring(9, 11);
-            int soma = 0;
-            int multiplicacao = 11;
-            int[] valores = new int[11];
-            // Recebe os números e realiza a multiplicação e soma.   
-            for (int i = 0; i < 9; i++) {
-                valores[i] = Integer.parseInt("" + cpf.charAt(i));
-                soma += (valores[i] * --multiplicacao);
-            }
-            // Cria o primeiro dígito verificador.   
-            int resto = soma % 11;
-            if (resto < 2) {
-                valores[9] = 0;
-            } else {
-                valores[9] = 11 - resto;
-            }
-            // Reinicia os valores.   
-            soma = 0;
-            multiplicacao = 11;
-            // Realiza a multiplicação e soma do segundo dígito.   
-            for (int i = 0; i < 10; i++) {
-                soma += valores[i] * multiplicacao--;
-            }
-            // Cria o segundo dígito verificador.   
-            resto = soma % 11;
-            valores[10] = 11 - resto;
-
-            if ((digitos.substring(0, 1).equalsIgnoreCase(Integer.toString(valores[9])))
-                    && (digitos.substring(1, 2).equalsIgnoreCase(Integer.toString(valores[10])))) {
-                retorno = true;
-            }
+        int d1 = 0, d2 = 0;
+        int digito1, digito2, resto;
+        int digitoCPF;
+        String digitoVerificadorCalculado;
+        
+        //Tenta converter o texto do cpf para número
+        try{
+            //Tem somente números no cpf
+            Long.parseLong(cpf);
+        } catch(NumberFormatException e){
+            //Tem caractere que não sáo números
+            return false;
         }
-        return retorno;
+        //Percorre os dígitos do cpf
+        for (int i = 1; i < cpf.length() - 1; i++) {
+            //Extrai um dígito do cpf
+            digitoCPF = Integer.parseInt(cpf.substring(i - 1, i));
+
+            //multiplique a ultima casa por 2 a seguinte por 3 a seguinte por 4 e assim por diante.
+            d1 = d1 + (11 - i) * digitoCPF;
+
+            //para o segundo digito repita o procedimento incluindo o primeiro digito calculado no passo anterior.
+            d2 = d2 + (12 - i) * digitoCPF;
+        }
+
+        //Primeiro resto da divisão por 11.
+        resto = (d1 % 11);
+
+        //Se o resultado for 0 ou 1 o digito é 0 caso contrário o digito é 11 menos o resultado anterior.
+        if (resto < 2) {
+            digito1 = 0;
+        } else {
+            digito1 = 11 - resto;
+        }
+        d2 = d2 + 2 * digito1;
+
+        //Segundo resto da divisão por 11.
+        resto = d2 % 11;
+
+        //Se o resultado for 0 ou 1 o digito é 0 caso contrário o digito é 11 menos o resultado anterior.
+        if (resto < 2) {
+            digito2 = 0;
+        } else {
+            digito2 = 11 - resto;
+        }
+
+        //Digito verificador do CPF que está sendo validado.
+        String digitoVerificador = cpf.substring(cpf.length() - 2, cpf.length());
+
+        //Concatenando o primeiro resto com o segundo.
+        digitoVerificadorCalculado = String.valueOf(digito1) + String.valueOf(digito2);
+
+        //comparar o digito verificador do cpf com o primeiro resto + o segundo resto.
+        return digitoVerificador.equals(digitoVerificadorCalculado);
     }
 }
