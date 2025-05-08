@@ -51,7 +51,7 @@ class TestFrmClienteConsultar {
         controle.jButtonConsultarActionPerformed(null);
 
         //Verifica se a inclusão foi realizada
-        assertEquals(controle.getFrmCliente().getMensagem(), "Cliente encontrado!");
+        assertEquals("Cliente encontrado!", controle.getFrmCliente().getMensagem());
     }
 
     @Test
@@ -62,7 +62,7 @@ class TestFrmClienteConsultar {
         controle.jButtonConsultarActionPerformed(null);
 
         //Verifica se a inclusão foi realizada
-        assertEquals(controle.getFrmCliente().getMensagem(), "Cliente não encontrado!");
+        assertEquals("Cliente não encontrado!", controle.getFrmCliente().getMensagem());
     }
 
     /**
