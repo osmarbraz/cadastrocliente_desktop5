@@ -28,13 +28,13 @@ class TestDAOConsultaId {
     @Test
     void testConsulta1() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
-        ClienteDAO DAO = factory.getClienteDAO();
+        ClienteDAO dao = factory.getClienteDAO();
         Cliente consulta = new Cliente();
         consulta.setClienteId(cliente.getClienteId());
         // Insere os dados da consulta
-        DAO.inserir(cliente);
+        dao.inserir(cliente);
         //Consulta
-        List lista = DAO.aplicarFiltro(consulta);
+        List lista = dao.aplicarFiltro(consulta);
         //Verifica os dados    
         if (!lista.isEmpty()) {
             Cliente oCliente = (Cliente) lista.iterator().next();
@@ -47,13 +47,13 @@ class TestDAOConsultaId {
     @Test
     void testConsulta1NaoExisteId() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
-        ClienteDAO DAO = factory.getClienteDAO();
+        ClienteDAO dao = factory.getClienteDAO();
         Cliente consulta = new Cliente();
         consulta.setClienteId(clienteNaoExistente.getClienteId());
         // Insere os dados da consulta
-        DAO.inserir(cliente);
+        dao.inserir(cliente);
         //Consulta
-        List lista = DAO.aplicarFiltro(consulta);
+        List lista = dao.aplicarFiltro(consulta);
         //Verifica os dados    
         if (!lista.isEmpty()) {
             Cliente oCliente = (Cliente) lista.iterator().next();
@@ -65,22 +65,22 @@ class TestDAOConsultaId {
 
     void testConsulta1Null() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
-        ClienteDAO DAO = factory.getClienteDAO();
+        ClienteDAO dao = factory.getClienteDAO();
         //Consulta
-        List lista = DAO.aplicarFiltro(null);
+        List lista = dao.aplicarFiltro(null);
         assertNull(lista);
     }
 
     @Test
     void testConsulta2() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
-        ClienteDAO DAO = factory.getClienteDAO();
+        ClienteDAO dao = factory.getClienteDAO();
         Cliente consulta = new Cliente();
         consulta.setClienteId(cliente.getClienteId());
         // Insere os dados da consulta
-        DAO.inserir(cliente);
+        dao.inserir(cliente);
         //Consulta
-        List lista = DAO.aplicarFiltro(consulta);
+        List lista = dao.aplicarFiltro(consulta);
 
         //Verifica os dados    
         if (!lista.isEmpty()) {
@@ -94,13 +94,13 @@ class TestDAOConsultaId {
     @Test
     void testConsulta2NaoExisteId() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
-        ClienteDAO DAO = factory.getClienteDAO();
+        ClienteDAO dao = factory.getClienteDAO();
         Cliente consulta = new Cliente();
         consulta.setClienteId(clienteNaoExistente.getClienteId());
         // Insere os dados da consulta
-        DAO.inserir(cliente);
+        dao.inserir(cliente);
         //Consulta
-        List lista = DAO.aplicarFiltro(consulta);
+        List lista = dao.aplicarFiltro(consulta);
         //Verifica os dados    
         if (!lista.isEmpty()) {
             Cliente oCliente = (Cliente) lista.iterator().next();
@@ -112,22 +112,22 @@ class TestDAOConsultaId {
 
     void testConsulta2Null() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
-        ClienteDAO DAO = factory.getClienteDAO();
+        ClienteDAO dao = factory.getClienteDAO();
         //Consulta
-        List lista = DAO.aplicarFiltro(null);
+        List lista = dao.aplicarFiltro(null);
         assertNull(lista);
     }
 
     @Test
     void testConsulta3() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
-        ClienteDAO DAO = factory.getClienteDAO();
+        ClienteDAO dao = factory.getClienteDAO();
         Cliente consulta = new Cliente();
         consulta.setClienteId(cliente.getClienteId());
         // Insere os dados da consulta
-        DAO.inserir(cliente);
+        dao.inserir(cliente);
         //Consulta
-        List lista = DAO.aplicarFiltro(consulta);
+        List lista = dao.aplicarFiltro(consulta);
 
         //Verifica os dados    
         if (!lista.isEmpty()) {
@@ -141,13 +141,13 @@ class TestDAOConsultaId {
     @Test
     void testConsulta3NaoExisteId() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
-        ClienteDAO DAO = factory.getClienteDAO();
+        ClienteDAO dao = factory.getClienteDAO();
         Cliente consulta = new Cliente();
         consulta.setClienteId(clienteNaoExistente.getClienteId());
         // Insere os dados da consulta
-        DAO.inserir(cliente);
+        dao.inserir(cliente);
         //Consulta
-        List lista = DAO.aplicarFiltro(consulta);
+        List lista = dao.aplicarFiltro(consulta);
         //Verifica os dados    
         if (!lista.isEmpty()) {
             Cliente oCliente = (Cliente) lista.iterator().next();
@@ -159,28 +159,28 @@ class TestDAOConsultaId {
 
     void testConsulta3Null() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
-        ClienteDAO DAO = factory.getClienteDAO();
+        ClienteDAO dao = factory.getClienteDAO();
         //Consulta
-        List lista = DAO.aplicarFiltro(null);
+        List lista = dao.aplicarFiltro(null);
         assertNull(lista);
     }
 
     @AfterEach
-    void finaliza() throws Exception {
+    void finaliza() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
-        ClienteDAO DAO = factory.getClienteDAO();
+        ClienteDAO dao = factory.getClienteDAO();
         // Exclui os dados inseridos
-        DAO.excluir(cliente);
+        dao.excluir(cliente);
 
         factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
-        DAO = factory.getClienteDAO();
+        dao = factory.getClienteDAO();
         // Exclui os dados inseridos
-        DAO.excluir(cliente);
+        dao.excluir(cliente);
 
         factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
-        DAO = factory.getClienteDAO();
+        dao = factory.getClienteDAO();
         // Exclui os dados inseridos
-        DAO.excluir(cliente);
+        dao.excluir(cliente);
 
         cliente = null;
     }

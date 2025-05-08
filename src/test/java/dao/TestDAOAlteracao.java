@@ -30,17 +30,17 @@ class TestDAOAlteracao {
     @Test
     void testAlteracaoNome1() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
-        ClienteDAO DAO = factory.getClienteDAO();
-        DAO.inserir(cliente);
-        List lista = DAO.aplicarFiltro(cliente);
+        ClienteDAO dao = factory.getClienteDAO();
+        dao.inserir(cliente);
+        List lista = dao.aplicarFiltro(cliente);
         //Dado a ser alterado
         String nomeAlteracao = "Alterado";
         if (!lista.isEmpty()) {
             Cliente oCliente = (Cliente) lista.iterator().next();
             oCliente.setNome(nomeAlteracao);
             //Altera o objeto
-            DAO.alterar(oCliente);
-            lista = DAO.aplicarFiltro(cliente);
+            dao.alterar(oCliente);
+            lista = dao.aplicarFiltro(cliente);
             if (!lista.isEmpty()) {
                 Cliente aCliente = (Cliente) lista.iterator().next();
                 //Compara a alteração com o dado do objeto
@@ -59,17 +59,17 @@ class TestDAOAlteracao {
     @Test
     void testAlteracaoCpf1() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
-        ClienteDAO DAO = factory.getClienteDAO();
-        DAO.inserir(cliente);
-        List lista = DAO.aplicarFiltro(cliente);
+        ClienteDAO dao = factory.getClienteDAO();
+        dao.inserir(cliente);
+        List lista = dao.aplicarFiltro(cliente);
         //Dado a ser alterado
         String cpfAlteracao = "22222222222";
         if (!lista.isEmpty()) {
             Cliente oCliente = (Cliente) lista.iterator().next();
             oCliente.setCpf(cpfAlteracao);
             //Altera o objeto
-            DAO.alterar(oCliente);
-            lista = DAO.aplicarFiltro(cliente);
+            dao.alterar(oCliente);
+            lista = dao.aplicarFiltro(cliente);
             if (!lista.isEmpty()) {
                 Cliente aCliente = (Cliente) lista.iterator().next();
                 //Compara a alteração com o dado do objeto
@@ -88,9 +88,9 @@ class TestDAOAlteracao {
     @Test
     void testAlteracao1NaoExistente() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
-        ClienteDAO DAO = factory.getClienteDAO();
+        ClienteDAO dao = factory.getClienteDAO();
         //Altera o objeto não existente         
-        assertEquals(0, DAO.alterar(clienteNaoExistente));
+        assertEquals(0, dao.alterar(clienteNaoExistente));
     }
 
     /**
@@ -99,8 +99,8 @@ class TestDAOAlteracao {
     @Test
     void testAlteracao1Null() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
-        ClienteDAO DAO = factory.getClienteDAO();
-        assertEquals(0, DAO.alterar(null));
+        ClienteDAO dao = factory.getClienteDAO();
+        assertEquals(0, dao.alterar(null));
     }
 
     /**
@@ -109,17 +109,17 @@ class TestDAOAlteracao {
     @Test
     void testAlteracao2() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
-        ClienteDAO DAO = factory.getClienteDAO();
-        DAO.inserir(cliente);
-        List lista = DAO.aplicarFiltro(cliente);
+        ClienteDAO dao = factory.getClienteDAO();
+        dao.inserir(cliente);
+        List lista = dao.aplicarFiltro(cliente);
         //Dado a ser alterado
         String nomeAlteracao = "Alterado";
         if (!lista.isEmpty()) {
             Cliente oCliente = (Cliente) lista.iterator().next();
             oCliente.setNome(nomeAlteracao);
             //Altera o objeto
-            DAO.alterar(oCliente);
-            lista = DAO.aplicarFiltro(cliente);
+            dao.alterar(oCliente);
+            lista = dao.aplicarFiltro(cliente);
             if (!lista.isEmpty()) {
                 Cliente aCliente = (Cliente) lista.iterator().next();
                 //Compara a alteração com o dado do objeto
@@ -138,9 +138,9 @@ class TestDAOAlteracao {
     @Test
     void testAlteracao2NaoExistente() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
-        ClienteDAO DAO = factory.getClienteDAO();
+        ClienteDAO dao = factory.getClienteDAO();
         //Altera o objeto não existente         
-        assertEquals(0, DAO.alterar(clienteNaoExistente));
+        assertEquals(0, dao.alterar(clienteNaoExistente));
     }
 
     /**
@@ -149,8 +149,8 @@ class TestDAOAlteracao {
     @Test
     void testAlteracao2Null() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
-        ClienteDAO DAO = factory.getClienteDAO();
-        assertEquals(0, DAO.alterar(null));
+        ClienteDAO dao = factory.getClienteDAO();
+        assertEquals(0, dao.alterar(null));
     }
 
     /**
@@ -159,17 +159,17 @@ class TestDAOAlteracao {
     @Test
     void testAlteracao3() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
-        ClienteDAO DAO = factory.getClienteDAO();
-        DAO.inserir(cliente);
-        List lista = DAO.aplicarFiltro(cliente);
+        ClienteDAO dao = factory.getClienteDAO();
+        dao.inserir(cliente);
+        List lista = dao.aplicarFiltro(cliente);
         //Dado a ser alterado
         String nomeAlteracao = "Alterado";
         if (!lista.isEmpty()) {
             Cliente oCliente = (Cliente) lista.iterator().next();
             oCliente.setNome(nomeAlteracao);
             //Altera o objeto
-            DAO.alterar(oCliente);
-            lista = DAO.aplicarFiltro(cliente);
+            dao.alterar(oCliente);
+            lista = dao.aplicarFiltro(cliente);
             if (!lista.isEmpty()) {
                 Cliente aCliente = (Cliente) lista.iterator().next();
                 //Compara a alteração com o dado do objeto
@@ -188,9 +188,9 @@ class TestDAOAlteracao {
     @Test
     void testAlteracao3NaoExistente() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
-        ClienteDAO DAO = factory.getClienteDAO();
+        ClienteDAO dao = factory.getClienteDAO();
         //Altera o objeto não existente         
-        assertEquals(0, DAO.alterar(clienteNaoExistente));
+        assertEquals(0, dao.alterar(clienteNaoExistente));
     }
 
     /**
@@ -199,26 +199,26 @@ class TestDAOAlteracao {
     @Test
     void testAlteracao3Null() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
-        ClienteDAO DAO = factory.getClienteDAO();
-        assertEquals(0, DAO.alterar(null));
+        ClienteDAO dao = factory.getClienteDAO();
+        assertEquals(0, dao.alterar(null));
     }
 
     @AfterEach
-    void finaliza() throws Exception {
+    void finaliza() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
-        ClienteDAO DAO = factory.getClienteDAO();
+        ClienteDAO dao = factory.getClienteDAO();
         // Exclui os dados inseridos
-        DAO.excluir(cliente);
+        dao.excluir(cliente);
 
         factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
-        DAO = factory.getClienteDAO();
+        dao = factory.getClienteDAO();
         // Exclui os dados inseridos
-        DAO.excluir(cliente);
+        dao.excluir(cliente);
 
         factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
-        DAO = factory.getClienteDAO();
+        dao = factory.getClienteDAO();
         // Exclui os dados inseridos
-        DAO.excluir(cliente);
+        dao.excluir(cliente);
 
         cliente = null;
     }
