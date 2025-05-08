@@ -21,12 +21,12 @@ public class Valida {
         int resto;
         int digitoCPF;
         String digitoVerificadorCalculado;
-        
+
         //Tenta converter o texto do cpf para número
-        try{
+        try {
             //Tem somente números no cpf
             Long.parseLong(cpf);
-        } catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
             //Tem caractere que não sáo números
             return false;
         }
