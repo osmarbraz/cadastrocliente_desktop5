@@ -105,19 +105,17 @@ public class TestFrmClienteAlteracao {
 
     /**
      * Exclui os clientes usados nos testes.
-     *
-     * @throws java.lang.Exception
      */
     @AfterEach
-    public void finaliza() throws Exception {
+    public void finaliza() {
         //Apaga o registro incluído
         DAOFactory factory = DAOFactory.getDAOFactory(Factory.FABRICA);
-        ClienteDAO DAO = factory.getClienteDAO();
+        ClienteDAO dao = factory.getClienteDAO();
         // Exclui os dados inseridos
-        DAO.excluir(clienteTesteInserir);
+        dao.excluir(clienteTesteInserir);
 
         // Exclui os dados inseridos
-        DAO.excluir(clienteTesteAlterar);
+        dao.excluir(clienteTesteAlterar);
 
         controle = null;
         clienteTesteInserir = null;

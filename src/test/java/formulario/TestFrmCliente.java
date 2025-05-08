@@ -1,9 +1,6 @@
 package formulario;
 
 import controle.CtrCliente;
-import dao.DAOFactory;
-import dao.cliente.ClienteDAO;
-import entidade.Cliente;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -118,10 +115,9 @@ public class TestFrmCliente {
     /**
      * Atribui nulo as classes utilizadas.
      *
-     * @throws java.lang.Exception
      */
     @AfterEach
-    public void finaliza() throws Exception {
+    public void finaliza() {
         controle = null;
         frmCliente = null;
     }
