@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class TestFrmClienteInclusao {
+class TestFrmClienteInclusao {
 
     //Objeto cliente a ser inserido
     Cliente clienteTeste;
@@ -27,7 +27,7 @@ public class TestFrmClienteInclusao {
      * Inicializa os objetos para o teste.
      */
     @BeforeEach
-    public void inicializa() {
+    void inicializa() {
         //Dados de teste de inclusão
         clienteTeste = new Cliente("131", "Teste", "11111111111");
         //Dados de teste de inclusão falha cpf
@@ -43,7 +43,7 @@ public class TestFrmClienteInclusao {
      * Teste de inclusão com sucesso.
      */
     @Test
-    public void testIncluirSucesso() {
+    void testIncluirSucesso() {
         //Preenche o formulário
         controle.getFrmCliente().getjTClienteId().setText(clienteTeste.getClienteId());
         controle.getFrmCliente().getjTNome().setText(clienteTeste.getNome());
@@ -59,7 +59,7 @@ public class TestFrmClienteInclusao {
      * Teste de inclusão com falha pois já existe o cliente.
      */
     @Test
-    public void testIncluirSucessoNaoRealizada() {
+    void testIncluirSucessoNaoRealizada() {
         //Preenche o formulário
         controle.getFrmCliente().getjTClienteId().setText(clienteTeste.getClienteId());
         controle.getFrmCliente().getjTNome().setText(clienteTeste.getNome());
@@ -81,7 +81,7 @@ public class TestFrmClienteInclusao {
      * Teste de inclusão com falha com CPF inválido.
      */
     @Test
-    public void testIncluirFalhaCPF() {
+    void testIncluirFalhaCPF() {
         //Preenche o formulário
         controle.getFrmCliente().getjTClienteId().setText(clienteTesteFalhaCPF.getClienteId());
         controle.getFrmCliente().getjTNome().setText(clienteTesteFalhaCPF.getNome());
@@ -97,10 +97,9 @@ public class TestFrmClienteInclusao {
 
     /**
      * Exclui o cliente usado nos testes.
-     * 
      */
     @AfterEach
-    public void finaliza() {
+    void finaliza() {
         //Apaga o registro incluído
         DAOFactory factory = DAOFactory.getDAOFactory(Factory.FABRICA);
         ClienteDAO dao = factory.getClienteDAO();

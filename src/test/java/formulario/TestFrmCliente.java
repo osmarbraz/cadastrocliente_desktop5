@@ -114,7 +114,6 @@ class TestFrmCliente {
 
     /**
      * Atribui nulo as classes utilizadas.
-     *
      */
     @AfterEach
     void finaliza() {
