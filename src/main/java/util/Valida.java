@@ -14,8 +14,11 @@ public class Valida {
      * @return Se o cpf é válido.
      */
     public boolean validaCPF(String cpf) {
-        int d1 = 0, d2 = 0;
-        int digito1, digito2, resto;
+        int d1 = 0;
+        int d2 = 0;
+        int digito1;
+        int digito2;
+        int resto;
         int digitoCPF;
         String digitoVerificadorCalculado;
         
