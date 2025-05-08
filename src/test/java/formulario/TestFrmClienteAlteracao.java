@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class TestFrmClienteAlteracao {
+class TestFrmClienteAlteracao {
 
     //Objeto cliente a ser inserido
     Cliente clienteTesteInserir;
@@ -27,7 +27,7 @@ public class TestFrmClienteAlteracao {
      * Inicializa os objetos para o teste.
      */
     @BeforeEach
-    public void inicializa() {
+    void inicializa() {
         //Dados de teste de inclusão
         clienteTesteInserir = new Cliente("131", "Teste", "11111111111");
         //Dados de teste para alteração
@@ -41,7 +41,7 @@ public class TestFrmClienteAlteracao {
     }
 
     @Test
-    public void testAlterarSucesso() {
+    void testAlterarSucesso() {
         //Preenche o formulário
         controle.getFrmCliente().getjTClienteId().setText(clienteTesteInserir.getClienteId());
         controle.getFrmCliente().getjTNome().setText(clienteTesteInserir.getNome());
@@ -61,11 +61,11 @@ public class TestFrmClienteAlteracao {
         controle.jButtonAlterarActionPerformed(null);
 
         //Verifica se a inclusão foi realizada
-        assertEquals(controle.getFrmCliente().getMensagem(), "Alteração realizada com sucesso!");
+        assertEquals("Alteração realizada com sucesso!", controle.getFrmCliente().getMensagem());
     }
 
     @Test
-    public void testAlterarFalha() {
+    void testAlterarFalha() {
         //Preenche o formulário
         controle.getFrmCliente().getjTClienteId().setText(clienteTesteAlterar.getClienteId());
         controle.getFrmCliente().getjTNome().setText(clienteTesteAlterar.getNome());
@@ -75,11 +75,11 @@ public class TestFrmClienteAlteracao {
         controle.jButtonAlterarActionPerformed(null);
 
         //Verifica se a inclusão foi realizada
-        assertEquals(controle.getFrmCliente().getMensagem(), "Alteração não realizada!");
+        assertEquals("Alteração não realizada!", controle.getFrmCliente().getMensagem());
     }
 
     @Test
-    public void testAlterarFalhaCPF() {
+    void testAlterarFalhaCPF() {
         //Preenche o formulário
         controle.getFrmCliente().getjTClienteId().setText(clienteTesteInserir.getClienteId());
         controle.getFrmCliente().getjTNome().setText(clienteTesteInserir.getNome());
@@ -100,14 +100,14 @@ public class TestFrmClienteAlteracao {
         controle.jButtonAlterarActionPerformed(null);
 
         //Verifica se a inclusão foi realizada
-        assertEquals(controle.getFrmCliente().getMensagem(), "CPF Inválido!");
+        assertEquals("CPF Inválido!", controle.getFrmCliente().getMensagem());
     }
 
     /**
      * Exclui os clientes usados nos testes.
      */
     @AfterEach
-    public void finaliza() {
+    void finaliza() {
         //Apaga o registro incluído
         DAOFactory factory = DAOFactory.getDAOFactory(Factory.FABRICA);
         ClienteDAO dao = factory.getClienteDAO();
@@ -121,5 +121,4 @@ public class TestFrmClienteAlteracao {
         clienteTesteInserir = null;
         clienteTesteAlterar = null;
     }
-
 }

@@ -20,7 +20,7 @@ class TestDAOInclusaoChavePrimaria {
     }
 
     @Test
-    void testIncluir1() throws Exception {
+    void testIncluir1() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.SQLITE);
         ClienteDAO dao = factory.getClienteDAO();
         // Insere os dados        
@@ -30,7 +30,7 @@ class TestDAOInclusaoChavePrimaria {
     }
 
     @Test
-    void testIncluir2() throws Exception {
+    void testIncluir2() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.HASHMAP);
         ClienteDAO dao = factory.getClienteDAO();
         // Insere os dados                           
@@ -40,7 +40,7 @@ class TestDAOInclusaoChavePrimaria {
     }
 
     @Test
-    void testIncluir3() throws Exception {
+    void testIncluir3() {
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.RAF);
         ClienteDAO dao = factory.getClienteDAO();
         // Insere os dados        

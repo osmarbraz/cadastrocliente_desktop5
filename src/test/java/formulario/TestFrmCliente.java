@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class TestFrmCliente {
+class TestFrmCliente {
 
     //Formulário fake para inclusão dos dados
     FrmClienteFake frmCliente = null;
@@ -22,7 +22,7 @@ public class TestFrmCliente {
      * Inicializa os objetos para o teste.
      */
     @BeforeEach
-    public void inicializa() {
+    void inicializa() {
         //Instância o formulário fake
         frmCliente = new FrmClienteFake();
         //Instância o controle do formulário
@@ -35,81 +35,81 @@ public class TestFrmCliente {
      * Testa os componentes da interface gráfica
      */
     @Test
-    public void testFrmCliente() {
+    void testFrmCliente() {
         //Teste das caixas de texto
         JTextField jTClienteId = new JTextField();
         controle.getFrmCliente().setjTClienteId(jTClienteId);
         
         //Verifica se a componente foi criado
-        assertEquals(controle.getFrmCliente().getjTClienteId(), jTClienteId);
+        assertEquals(jTClienteId, controle.getFrmCliente().getjTClienteId());
         
         JTextField jTNome = new JTextField();
         controle.getFrmCliente().setjTNome(jTNome);
         
         //Verifica se a componente foi criado
-        assertEquals(controle.getFrmCliente().getjTNome(), jTNome);
+        assertEquals(jTNome, controle.getFrmCliente().getjTNome());
         
         JTextField jTCpf = new JTextField();
         controle.getFrmCliente().setjTCpf(jTCpf);
         
         //Verifica se a componente foi criado
-        assertEquals(controle.getFrmCliente().getjTCpf(), jTCpf);
+        assertEquals(jTCpf, controle.getFrmCliente().getjTCpf());
         
         //Teste dos rótulos
         JLabel jLClienteId = new JLabel();
         controle.getFrmCliente().setjLClienteId(jLClienteId);
         
         //Verifica se a componente foi criado
-        assertEquals(controle.getFrmCliente().getjLClienteId(), jLClienteId);
+        assertEquals(jLClienteId, controle.getFrmCliente().getjLClienteId());
         
         JLabel jLNome = new JLabel();
         controle.getFrmCliente().setjLNome(jLNome);
         
         //Verifica se a componente foi criado
-        assertEquals(controle.getFrmCliente().getjLNome(), jLNome);
+        assertEquals(jLNome, controle.getFrmCliente().getjLNome());
         
         JLabel jLCpf = new JLabel();
         controle.getFrmCliente().setjLCpf(jLCpf);
         
         //Verifica se a componente foi criado
-        assertEquals(controle.getFrmCliente().getjLCpf(), jLCpf);
+        assertEquals(jLCpf, controle.getFrmCliente().getjLCpf());
         
         //Teste dos botões
         JButton jBIncluir = new JButton();
         controle.getFrmCliente().setjBIncluir(jBIncluir);
         
         //Verifica se a componente foi criado
-        assertEquals(controle.getFrmCliente().getjBIncluir(), jBIncluir);
+        assertEquals(jBIncluir, controle.getFrmCliente().getjBIncluir());
         
         JButton jBAlterar = new JButton();
         controle.getFrmCliente().setjBAlterar(jBAlterar);
         
         //Verifica se a componente foi criado
-        assertEquals(controle.getFrmCliente().getjBAlterar(), jBAlterar);
+        assertEquals(jBAlterar, controle.getFrmCliente().getjBAlterar());
         
         JButton jBExcluir = new JButton();
         controle.getFrmCliente().setjBExcluir(jBExcluir);
         
         //Verifica se a componente foi criado
-        assertEquals(controle.getFrmCliente().getjBExcluir(), jBExcluir);
+        assertEquals(jBExcluir, controle.getFrmCliente().getjBExcluir());
         
         JButton jBConsultar = new JButton();
         controle.getFrmCliente().setjBConsultar(jBConsultar);
         
         //Verifica se a componente foi criado
-        assertEquals(controle.getFrmCliente().getjBConsultar(), jBConsultar);
+        assertEquals(jBConsultar, controle.getFrmCliente().getjBConsultar());
         
         JButton jBLimpar = new JButton();
         controle.getFrmCliente().setjBLimpar(jBLimpar);
         
         //Verifica se a componente foi criado
-        assertEquals(controle.getFrmCliente().getjBLimpar(), jBLimpar);
+        assertEquals(jBLimpar, controle.getFrmCliente().getjBLimpar());
         
         JButton jBFechar = new JButton();
         controle.getFrmCliente().setjBFechar(jBFechar);
         
         //Verifica se a componente foi criado
-        assertEquals(controle.getFrmCliente().getjBFechar(), jBFechar);        
+        assertEquals(jBFechar, controle.getFrmCliente().getjBFechar());        
     }
 
     /**
@@ -117,7 +117,7 @@ public class TestFrmCliente {
      *
      */
     @AfterEach
-    public void finaliza() {
+    void finaliza() {
         controle = null;
         frmCliente = null;
     }

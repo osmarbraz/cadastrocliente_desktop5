@@ -25,7 +25,7 @@ class TestFrmClienteExclusao {
      * Inicializa os objetos para o teste.
      */
     @BeforeEach
-    public void inicializa() {
+    void inicializa() {
         //Dados de teste de inclusão
         clienteTeste = new Cliente("131", "Teste", "11111111111");
         //Instância o formulário fake
@@ -39,7 +39,7 @@ class TestFrmClienteExclusao {
      * Exclusão realizada com sucesso.
      */
     @Test
-    public void testExcluir() {
+    void testExcluir() {
         //Preenche o formulário
         controle.getFrmCliente().getjTClienteId().setText(clienteTeste.getClienteId());
         controle.getFrmCliente().getjTNome().setText(clienteTeste.getNome());
@@ -56,21 +56,21 @@ class TestFrmClienteExclusao {
         controle.jButtonExcluirActionPerformed(null);
 
         //Verifica se o cpf foi recuperado
-        assertEquals(controle.getFrmCliente().getMensagem(), "Exclusão realizada com sucesso!");
+        assertEquals("Exclusão realizada com sucesso!", controle.getFrmCliente().getMensagem());
     }
 
     /**
      * Exclusão realizada com falha.
      */
     @Test
-    public void testExcluirFalha() {
+    void testExcluirFalha() {
         //Preenche o campo id
         controle.getFrmCliente().getjTClienteId().setText(clienteTeste.getClienteId());
         //Chama o excluir para apagar o cliente incluído
         controle.jButtonExcluirActionPerformed(null);
 
         //Verifica se o cpf foi recuperado
-        assertEquals(controle.getFrmCliente().getMensagem(), "Exclusão não realizada!");
+        assertEquals("Exclusão não realizada!", controle.getFrmCliente().getMensagem());
     }
 
     /**
@@ -78,7 +78,7 @@ class TestFrmClienteExclusao {
      * teste.
      */
     @AfterEach
-    public void Finaliza() {
+    void Finaliza() {
         //Apaga o registro incluído        
         DAOFactory factory = DAOFactory.getDAOFactory(Factory.FABRICA);
         ClienteDAO dao = factory.getClienteDAO();

@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class TestFrmClienteConsultar {
+class TestFrmClienteConsultar {
 
     //Objeto cliente a ser inserido
     Cliente clienteTeste;
@@ -25,7 +25,7 @@ public class TestFrmClienteConsultar {
      * Inicializa os objetos para o teste.
      */
     @BeforeEach
-    public void inicializa() {
+    void inicializa() {
         //Dados de teste de inclusão
         clienteTeste = new Cliente("131", "Teste", "11111111111");
         //Instância o formulário fake
@@ -36,7 +36,7 @@ public class TestFrmClienteConsultar {
     }
 
     @Test
-    public void testConsultaEncontrado() {
+    void testConsultaEncontrado() {
         //Preenche o formulário
         controle.getFrmCliente().getjTClienteId().setText(clienteTeste.getClienteId());
         controle.getFrmCliente().getjTNome().setText(clienteTeste.getNome());
@@ -55,7 +55,7 @@ public class TestFrmClienteConsultar {
     }
 
     @Test
-    public void testConsultaNaoEncontrado() {
+    void testConsultaNaoEncontrado() {
         //Preenche o campo id
         controle.getFrmCliente().getjTClienteId().setText(clienteTeste.getClienteId());
         //Chama o consultar para localizar o id incluído
@@ -69,7 +69,7 @@ public class TestFrmClienteConsultar {
      * Exclui o cliente usado nos testes.
      */
     @AfterEach
-    public void finaliza() {
+    void finaliza() {
         //Apaga o registro incluído
         DAOFactory factory = DAOFactory.getDAOFactory(Factory.FABRICA);
         ClienteDAO dao = factory.getClienteDAO();

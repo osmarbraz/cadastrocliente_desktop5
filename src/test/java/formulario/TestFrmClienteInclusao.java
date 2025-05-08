@@ -52,7 +52,7 @@ public class TestFrmClienteInclusao {
         controle.jButtonIncluirActionPerformed(null);
 
         //Verifica se a inclusão foi realizada
-        assertEquals(controle.getFrmCliente().getMensagem(), "Inclusão realizada com sucesso!");
+        assertEquals("Inclusão realizada com sucesso!", controle.getFrmCliente().getMensagem());
     }
 
     /**
@@ -74,7 +74,7 @@ public class TestFrmClienteInclusao {
         controle.jButtonIncluirActionPerformed(null);
 
         //Verifica se a inclusão foi realizada
-        assertEquals(controle.getFrmCliente().getMensagem(), "Inclusão não realizada!");
+        assertEquals("Inclusão não realizada!", controle.getFrmCliente().getMensagem());
     }
 
     /**
@@ -92,7 +92,7 @@ public class TestFrmClienteInclusao {
         controle.jButtonLimparActionPerformed(null);
 
         //Verifica se o cpf foi recuperado
-        assertEquals(controle.getFrmCliente().getMensagem(), "CPF Inválido!");
+        assertEquals("CPF Inválido!", controle.getFrmCliente().getMensagem());
     }
 
     /**
