@@ -24,7 +24,6 @@ hs_err_pid*
 replay_pid*
 /target/
 
-
 # arquivo banco de dados
 cliente.db
 cliente.dat

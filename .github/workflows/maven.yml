@@ -20,7 +20,7 @@ jobs:
         java: [16, 17, 18]
     name: build-dev - Teste com JDK ${{ matrix.java }}
     steps:    
-    # Configura o terminal virtual para interface gráfica
+    # Configura o terminal virtual 1 para a tela 0 com as dimensões 1600x1200x24
     - name: Configura xvfb para tela 0
       run: Xvfb :1 -screen 0 1600x1200x24 &
     # Utiliza a action checkout para fazer o git clone no runner
@@ -37,7 +37,7 @@ jobs:
     - name: Compila o projeto com Maven
       # Configura as variáveis de ambiente
       env:
-        # Roda a aplicação a tela 1 do Xvfb
+        # Roda a aplicação no terminal virtual 1 do Xvfb
         DISPLAY: :1
       run: mvn -B test --file pom.xml      
     # Desliga o Xvfb
@@ -53,7 +53,7 @@ jobs:
     needs: build-dev
     name: build-hmg - Análise do código
     steps:    
-    # Configura o terminal virtual para interface gráfica
+    # Configura o terminal virtual 1 para a tela 0 com as dimensões 1600x1200x24
     - name: Configura xvfb para tela 0
       run: Xvfb :1 -screen 0 1600x1200x24 &
     # Utiliza a action checkout para fazer o git clone no runner
@@ -90,7 +90,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        # Roda a aplicação a tela 1 do Xvfb
+        # Roda a aplicação no terminal virtual 1 do Xvfb
         DISPLAY: :1
       #run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=osmarbraz_cadastrocliente_desktop5 #Default do Sonarcloud
       run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=osmarbraz_cadastrocliente_desktop5 org.jacoco:jacoco-maven-plugin:prepare-agent -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
@@ -107,7 +107,7 @@ jobs:
     needs: build-hmg
     name: build-prd - Empacotamento
     steps:  
-    # Configura o termina para interface gráfica
+    # Configura o terminal virtual 1 para a tela 0 com as dimensões 1600x1200x24
     - name: Configura xvfb para tela 0
       run: Xvfb :1 -screen 0 1600x1200x24 &    
     # Utiliza a action checkout para fazer o git clone no runner        
@@ -125,7 +125,7 @@ jobs:
     - name: Empacota o projeto com Maven      
       # Configura as variáveis de ambiente
       env:
-        # Roda a aplicação a tela 1 do Xvfb   
+        # Roda a aplicação no terminal virtual 1 do Xvfb
         DISPLAY: :1    
       run: mvn -B package --file pom.xml -DskipTests      
     # Cria o artefato de download    
